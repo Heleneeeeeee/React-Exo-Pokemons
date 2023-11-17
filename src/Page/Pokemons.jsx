@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from '../Component/Header';
+import './Pokemons.scss';
+
 
 const Pokemons = () => {
 
@@ -74,6 +76,7 @@ const Pokemons = () => {
     <Header />
     <main>
     <h2>Liste de Pokémons:</h2>
+    <div className='pokemonlist'>
     {pokemons.map ((pokemon) => { 
         return (
             <Link to={"/pokemon/" +pokemon.id + "/details"}>
@@ -84,6 +87,7 @@ const Pokemons = () => {
             </Link>
         );
     })}
+    </div>
     </main>
     </>
 )

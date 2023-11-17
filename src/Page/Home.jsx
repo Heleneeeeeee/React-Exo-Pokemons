@@ -1,4 +1,6 @@
 import Header from '../Component/Header';
+import TrainersList from '../Component/TrainersList';
+import './Home.scss';
 
 const Home = () => {
 
@@ -87,6 +89,7 @@ const pokemons = [
           )
       })}
       </div>
+      <TrainersList />
       </main>
     </>
  )

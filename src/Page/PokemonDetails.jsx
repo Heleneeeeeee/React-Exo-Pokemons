@@ -72,18 +72,19 @@ const pokemons = [
       const {pokemonId}= useParams();
       const pokemonToDisplay = pokemons.find((pokemon)=>{
         return (
+            
             pokemon.id==pokemonId
             )
       });
 
       return (
-      <>
+      <div className='pokemonlist'>
         <Header />
         <h1>Détail du pokemon : </h1>
 
       <h2>{pokemonToDisplay.name}</h2>
       <img src={pokemonToDisplay.img} alt={pokemonToDisplay.name} />
-      </>
+      </div>
 
 
       )

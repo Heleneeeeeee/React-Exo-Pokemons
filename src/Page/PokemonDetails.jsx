@@ -1,6 +1,7 @@
+import { useParams } from 'react-router-dom';
 import Header from '../Component/Header';
 
-const Home = () => {
+const PokemonDetails = () => {
 
 const pokemons = [
         {
@@ -67,31 +68,33 @@ const pokemons = [
           isInTeam: true,
         },
       ];
+      
+      const {pokemonId}= useParams();
+      const pokemonToDisplay = pokemons.find((pokemon)=>{
+        return (
+            pokemon.id==pokemonId
+            )
+      });
 
-      const pokemonsInTeam = pokemons.filter((pokemon) => {
-        return (pokemon.isInTeam === true);
-      }
-      )
       return (
       <>
-      <Header />
-      <main>
-      <h2>Liste de mes Pokémons:</h2>
-      <div className='pokemonlist'>
-      {pokemonsInTeam.map ((pokemon) => { 
-          return (
-            <>
-            <h3>{pokemon.name}</h3>
-            <p><img src={pokemon.img} alt="pokemon" /></p>
-            </>
-          )
-      })}
-      </div>
-      </main>
-    </>
- )
+        <Header />
+        <h1>Détail du pokemon : </h1>
+
+      <h2>{pokemonToDisplay.name}</h2>
+      <img src={pokemonToDisplay.img} alt={pokemonToDisplay.name} />
+      </>
+
+
+      )
 }
 
-export default Home;
+export default PokemonDetails;
 
-//La page d'accueil doit afficher un header avec logo et navigation (lien vers les différentes pages), ainsi que la liste des pokemons qui sont dans la team
+
+     
+
+//Créez un composant de page pour afficher un pokemon (cette page est un 'gabarit" et marchera avec n'importe quel pokemon), avec pour l'instant du contenu "bidon"
+// Créez une route (dans App.js) qui prend en parametre d'url un id et qui apppelle le composant de page pour afficher un pokemon
+// Dans la liste des pokemons (soit la home soit la page pokemons), pour chaque pokemon dans la boucle, créez un lien avec Link qui dirige vers la page qui affiche un pokemon. Attention, il faut que l'url du Link contiennne l'id du pokemon actuel de la boucle
+// Modifiez la page qui affiche un pokemon pour récupérer dans l'url l'id, trouver dans la liste de pokemons le pokemon correspondant à l'id. Puis afficher ce pokemon dans le JSX

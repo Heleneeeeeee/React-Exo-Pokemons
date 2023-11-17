@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from '../Component/Header';
 
 const Pokemons = () => {
@@ -75,14 +76,18 @@ const Pokemons = () => {
     <h2>Liste de Pokémons:</h2>
     {pokemons.map ((pokemon) => { 
         return (
-            <>
-            <h3>{pokemon.name}</h3>
-            <p><img src={pokemon.img} alt="pokemon" /></p>
-            </>
-        )
+            <Link to={"/pokemon/" +pokemon.id + "/details"}>
+                <>
+                    <h3>{pokemon.name}</h3>
+                    <p><img src={pokemon.img} alt={pokemon.name} /></p>
+                </>
+            </Link>
+        );
     })}
     </main>
     </>
 )
 }
     export default Pokemons;
+
+    

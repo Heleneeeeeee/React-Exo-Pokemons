@@ -1,0 +1,28 @@
+header {
+    background-color: blue;
+}
+
+h1 {
+    text-align: center;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: flex-end;
+    
+}
+
+.logo {
+    display: flex;
+    margin-right: auto;
+    max-width: 30%;
+}
+
+
+a {
+    text-decoration: none;
+    margin-right:15px;
+    color: yellow;
+}
